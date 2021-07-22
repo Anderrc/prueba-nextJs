@@ -23,7 +23,7 @@ export const Logo = styled.div`
 `;
 
 interface IPropButtonTheme {
-    background?: boolean
+    background?: string;
 }
 
 export const ButtonTheme = styled.button<IPropButtonTheme>`
@@ -37,7 +37,8 @@ export const ButtonTheme = styled.button<IPropButtonTheme>`
     align-self: center;
     border: none;
     outline: none;
-    background: ${props => props.background ? "#000" : "#fff"};
+    background: ${(props) =>
+        props.background === "darkTheme" ? "#000" : "#fff"};
     box-shadow: 0px 0px 16px rgba(255, 255, 255, 0.25);
     border-radius: 10px;
     overflow: hidden;

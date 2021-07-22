@@ -6,14 +6,21 @@ import {
     IconTheme,
 } from "./styled";
 import Link from "next/link";
-import { useState } from "react";
+import { useContext, useEffect } from "react";
 import { motion } from "framer-motion";
+import { AppContext } from "../../../hooks/context";
+
 const Header = () => {
-    const [theme, setTheme] = useState(false);
+    const { theme, setTheme } = useContext(AppContext);
 
     const handlerButtonTheme = () => {
-        setTheme(!theme);
-        console.log(theme);
+        if (theme == "lightTheme") {
+            setTheme("darkTheme");
+            localStorage.setItem("theme", "darkTheme");
+        } else {
+            setTheme("lightTheme");
+            localStorage.setItem("theme", "lightTheme");
+        }
     };
 
     return (
@@ -27,20 +34,20 @@ const Header = () => {
                 <ButtonTheme onClick={handlerButtonTheme} background={theme}>
                     <IconTheme
                         as={motion.div}
-                        initial="y:18"
+                        initial="y:-25"
                         animate={
-                            theme === true
+                            theme === "lightTheme"
                                 ? {
-                                      y: -25,
+                                      y: 19,
                                       transition: {
-                                          duration: 0.3,
+                                          duration: 0.5,
                                           ease: "easeInOut",
                                       },
                                   }
                                 : {
-                                      y: 19,
+                                      y: -25,
                                       transition: {
-                                          duration: 0.3,
+                                          duration: 0.5,
                                           ease: "easeInOut",
                                       },
                                   }
@@ -93,7 +100,7 @@ const Header = () => {
                         as={motion.div}
                         initial="y:25"
                         animate={
-                            theme === true
+                            theme === "darkTheme"
                                 ? {
                                       y: -15,
                                       transition: {

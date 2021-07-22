@@ -10,7 +10,6 @@ export const Card = styled.div`
     max-width: 20rem;
     align-self: center;
     justify-self: center;
-    /* max-height: 25rem; */
 `;
 export const CardImg = styled.img`
     width: 100%;
@@ -20,15 +19,18 @@ export const CardImg = styled.img`
 export const CardBody = styled.p`
     width: 100%;
     color: #0f1926;
+    padding: 0 10px;
 `;
 
 export const CardTitle = styled.h2`
     color: #0f1926;
+    padding: 0 10px;
 `;
 
 export const CardButton = styled.a`
     font-size: x-large;
     color: #f9b208;
+    margin: 5px 10px;
     cursor: pointer;
 
     &:active {
