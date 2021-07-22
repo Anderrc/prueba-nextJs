@@ -1,14 +1,20 @@
 import Link from "next/link";
-import { Card, CardBody, CardImg, CardTitle, CardButton } from "./styled";
+import { Card, CardBody, CardImg, CardTitle, CardButton } from "./styledComponents"
 
 interface IProps {
-    title: string;
-    description: string;
-    type: string;
-    url: string;
-    img: string;
-    id: string
-    slug: string
+    data: {
+        titulo: string;
+        descripcion: string;
+        tipo: string;
+        url: string;
+        img: {
+            url: string
+        }
+        id?: string
+        slug: string
+    },
+    onClick: any,
+    layoutId: string
 }
 
 const createSlug = (str:string) => {
@@ -17,14 +23,35 @@ const createSlug = (str:string) => {
 }
 
 const Resource = (props: IProps) => {
+    const {
+        data: {
+            img,
+            titulo,
+            descripcion,
+            url,
+            slug,
+        },
+        layoutId,
+        onClick,
+    } = props;
+
     return (
-        <Card>
-            <CardImg src={props.img}></CardImg>
-            <CardTitle>{props.title}</CardTitle>
-            <CardBody>{props.description}</CardBody>
-            <Link passHref href={`/recurso/[slug]`} as={`/recurso/${props.slug}`}>
-                <CardButton>Ver</CardButton>
-            </Link>
+        <Card 
+            onClick={onClick} 
+            layoutId={layoutId}
+        >
+            <CardImg src={img.url}></CardImg>
+            <CardTitle>{titulo}</CardTitle>
+            <CardBody>{descripcion}</CardBody>
+            {url && (
+                <Link
+                    passHref
+                    href={`/post/[slug]`}
+                    as={`/post/${slug}`}
+                >
+                    <CardButton>Ver</CardButton>
+                </Link>
+            )}
         </Card>
     );
 };
