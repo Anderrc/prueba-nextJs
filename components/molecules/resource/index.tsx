@@ -1,3 +1,4 @@
+import { motion } from "framer-motion";
 import Link from "next/link";
 import { Card, CardBody, CardImg, CardTitle, CardButton } from "./styledComponents"
 
@@ -17,10 +18,10 @@ interface IProps {
     layoutId: string
 }
 
-const createSlug = (str:string) => {
-    str = str.replace(/\s+/g, '-');
+const createSlug = (str: string) => {
+    str = str.replace(/\s+/g, "-");
     return str.toLowerCase();
-}
+};
 
 const Resource = (props: IProps) => {
     const {
