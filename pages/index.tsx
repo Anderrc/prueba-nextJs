@@ -1,3 +1,4 @@
+import { motion } from "framer-motion";
 import Resource from "../components/molecules/resource";
 import Layout from "../components/organism/layout";
 import { getAllResources } from "./api/api";
@@ -36,6 +37,7 @@ const Home = (props: IProps) => {
                         url={item.url}
                         type={item.tipo}
                         key={key}
+                        delay={key}
                         id={item.sys.id}
                         slug={item.slug}
                     ></Resource>

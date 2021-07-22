@@ -21,7 +21,7 @@ interface IProps {
 
 const ContentResource = (props: IProps) => {
     return (
-        <ContentPageResource background="red">
+        <ContentPageResource >
             <ImgContent >
                 <img src={props.img} alt={props.title} />
             </ImgContent>
