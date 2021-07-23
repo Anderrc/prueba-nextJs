@@ -43,9 +43,14 @@ export const Title = styled.h1`
     margin-bottom: 0px;
 `;
 
+export const ContentTags = styled.div`
+    display: flex;
+    flex-direction: row;
+`
+
 export const Tag = styled.span`
     padding: 5px 20px;
-    margin: 10px 0px;
+    margin: 10px 10px;
     background: rgb(0, 173, 181);
     border-radius: 5px 90px 90px 5px;
     font-size: smaller;

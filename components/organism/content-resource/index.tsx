@@ -2,6 +2,7 @@
 import {
     ButtonRedirect,
     ContentPageResource,
+    ContentTags,
     DescriptionContent,
     ImgContent,
     Tag,
@@ -12,7 +13,7 @@ import {
 interface IProps {
     title: string;
     description: string;
-    type: string;
+    type: [];
     url: string;
     img: string;
     id: string;
@@ -24,7 +25,11 @@ const ContentResource = (props: IProps) => {
         <ContentPageResource>
             <TitleContent>
                 <Title>{props.title}</Title>
-                <Tag>{props.type}</Tag>
+                <ContentTags>
+                    {props.type.map((item, key) => (
+                        <Tag key={key}>{item}</Tag>
+                    ))}
+                </ContentTags>
             </TitleContent>
             <ImgContent>
                 <img src={props.img} alt={props.title} />
