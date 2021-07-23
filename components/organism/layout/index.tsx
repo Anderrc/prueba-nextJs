@@ -68,7 +68,7 @@ const Layout = (props: IProps) => {
                     animate={{ pathLength: isComplete ? 1 : 0 }}
                 />
             </ProgressIcon>
-            <Footer />
+            {/* <Footer /> */}
         </ThemeProvider>
     );
 };

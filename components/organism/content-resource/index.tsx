@@ -4,10 +4,10 @@ import {
     ContentPageResource,
     DescriptionContent,
     ImgContent,
+    Tag,
+    Title,
     TitleContent,
 } from "./styled";
-
-
 
 interface IProps {
     title: string;
@@ -21,20 +21,22 @@ interface IProps {
 
 const ContentResource = (props: IProps) => {
     return (
-        <ContentPageResource >
-            <ImgContent >
+        <ContentPageResource>
+            <TitleContent>
+                <Title>{props.title}</Title>
+                <Tag>{props.type}</Tag>
+            </TitleContent>
+            <ImgContent>
                 <img src={props.img} alt={props.title} />
             </ImgContent>
-            <TitleContent>
-                {props.title} - {props.type}
-            </TitleContent>
-            <DescriptionContent>{props.description}</DescriptionContent>
+            <DescriptionContent>
+                <p>{props.description}</p>
+            </DescriptionContent>
             <ButtonRedirect>
                 <a href={props.url} target="_blank" rel="noreferrer">
                     Ir al sito
                 </a>
             </ButtonRedirect>
-
         </ContentPageResource>
     );
 };

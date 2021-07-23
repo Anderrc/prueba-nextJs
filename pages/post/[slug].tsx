@@ -20,25 +20,6 @@ interface IProps {
     };
 }
 
-interface IResources {
-    items: [
-        {
-            titulo: string;
-            tipo: string;
-            url: string;
-            descripcion: string;
-            slug: string;
-            sys: {
-                id: string;
-            };
-            img: {
-                title: string;
-                url: string;
-            };
-        }
-    ];
-}
-
 const ResourcePage = (props: IProps) => {
     const { resource } = props;
 

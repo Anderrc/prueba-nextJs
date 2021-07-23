@@ -6,6 +6,7 @@ export const Main = styled.main`
     min-height: 70vh;
     display: flex;
     justify-content: center;
+    margin-bottom: 40px;
 `
 
 export const ContentMain = styled.div`

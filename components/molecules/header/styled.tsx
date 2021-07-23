@@ -38,7 +38,7 @@ export const ButtonTheme = styled.button<IPropButtonTheme>`
     border: none;
     outline: none;
     background: ${(props) =>
-        props.background === "darkTheme" ? "#000" : "#fff"};
+        props.background === "darkTheme" ? "#fff" : "#000"};
     box-shadow: 0px 0px 16px rgba(255, 255, 255, 0.25);
     border-radius: 10px;
     overflow: hidden;

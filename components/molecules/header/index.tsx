@@ -36,7 +36,7 @@ const Header = () => {
                         as={motion.div}
                         initial="y:-25"
                         animate={
-                            theme === "lightTheme"
+                            theme === "darkTheme"
                                 ? {
                                       y: 19,
                                       transition: {
@@ -60,7 +60,7 @@ const Header = () => {
                             height="30"
                             viewBox="0 0 24 24"
                             fill="none"
-                            stroke="#0E0E0E"
+                            stroke="#000"
                             strokeWidth="2"
                             strokeLinecap="round"
                             strokeLinejoin="round"
@@ -100,7 +100,7 @@ const Header = () => {
                         as={motion.div}
                         initial="y:25"
                         animate={
-                            theme === "darkTheme"
+                            theme === "lightTheme"
                                 ? {
                                       y: -15,
                                       transition: {
