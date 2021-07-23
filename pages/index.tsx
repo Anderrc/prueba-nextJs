@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { AnimateSharedLayout, AnimatePresence, motion } from "framer-motion";
-import Resource from "../components/molecules/resource";
+import Resource from "../components/molecules/Resource";
 import Layout from "../components/organism/layout";
 import ResourceDetail from "../components/molecules/ResourceDetail";
 import { getAllResources } from "./api/api";
@@ -21,6 +21,7 @@ interface IProps {
               title:string
               url:string
             }
+            recomendado: boolean
         }
     ];
 }
