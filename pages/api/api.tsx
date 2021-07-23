@@ -47,6 +47,7 @@ export const getAllResources = async () => {
                   url
                   slug
                   descripcion
+                  recomendado
                   img{
                     title
                     url
@@ -73,6 +74,7 @@ export const getResource = async (slug: string) => {
                     url
                     descripcion
                     slug
+                    recomendado
                     img{
                         title
                         url

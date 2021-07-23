@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import Link from "next/link";
-import { Card, CardBody, CardImg, CardTitle, CardButton } from "./styledComponents"
+import { Card, CardBody, CardImg, CardTitle, CardButton, Ribbon } from "./styledComponents"
 
 interface IProps {
     data: {
@@ -13,9 +13,10 @@ interface IProps {
         }
         id?: string
         slug: string
+        recomendado: boolean
     },
     onClick: any,
-    layoutId: string
+    layoutId: string,
 }
 
 const createSlug = (str: string) => {
@@ -31,6 +32,7 @@ const Resource = (props: IProps) => {
             descripcion,
             url,
             slug,
+            recomendado
         },
         layoutId,
         onClick,
@@ -40,7 +42,11 @@ const Resource = (props: IProps) => {
         <Card 
             onClick={onClick} 
             layoutId={layoutId}
+            className={url && 'isUrl'}
         >
+            {recomendado && (
+                <Ribbon><span>Recomendado</span></Ribbon>
+            )}
             <CardImg src={img.url}></CardImg>
             <CardTitle>{titulo}</CardTitle>
             <CardBody>{descripcion}</CardBody>
@@ -50,7 +56,7 @@ const Resource = (props: IProps) => {
                     href={`/post/[slug]`}
                     as={`/post/${slug}`}
                 >
-                    <CardButton>Ver</CardButton>
+                    <CardButton>Descubre</CardButton>
                 </Link>
             )}
         </Card>
