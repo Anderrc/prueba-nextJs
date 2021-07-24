@@ -1,4 +1,3 @@
-/* eslint-disable @next/next/no-img-element */
 import {
     ButtonRedirect,
     ContentPageResource,
@@ -9,13 +8,14 @@ import {
     Title,
     TitleContent,
 } from "./styled";
-
+import Image from 'next/image'
 interface IProps {
     title: string;
     description: string;
     type: [];
     url: string;
     img: string;
+    background: string;
     id: string;
     slug: string;
 }
@@ -32,7 +32,7 @@ const ContentResource = (props: IProps) => {
                 </ContentTags>
             </TitleContent>
             <ImgContent>
-                <img src={props.img} alt={props.title} />
+                <Image width="1024" height="500" quality="100" src={props.background} alt={props.title} layout="intrinsic" />
             </ImgContent>
             <DescriptionContent>
                 <p>{props.description}</p>

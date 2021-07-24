@@ -6,7 +6,7 @@ import { useRouter } from "next/router";
 interface IProps {
     resource: {
         titulo: string;
-        tipo: string;
+        tipo: [];
         url: string;
         descripcion: string;
         slug: string;
@@ -14,6 +14,10 @@ interface IProps {
             id: string;
         };
         img: {
+            title: string;
+            url: string;
+        };
+        background: {
             title: string;
             url: string;
         };
@@ -37,6 +41,7 @@ const ResourcePage = (props: IProps) => {
                 type={resource.tipo}
                 id={resource.sys.id}
                 slug={resource.slug}
+                background={resource.background.url}
             ></ContentResource>
         </Layout>
     );
