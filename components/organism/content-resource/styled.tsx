@@ -46,7 +46,7 @@ export const Title = styled.h1`
 export const ContentTags = styled.div`
     display: flex;
     flex-direction: row;
-`
+`;
 
 export const Tag = styled.span`
     padding: 5px 20px;
@@ -77,13 +77,13 @@ export const DescriptionContent = styled.div`
     width: 100%;
     margin: 30px 0px;
     padding: 10px 20px;
-    border-radius:20px;
+    border-radius: 20px;
     background: white;
     box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px,
         rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px,
         rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
 
-    p{
+    p {
         font-size: larger;
         color: #000;
     }
@@ -95,11 +95,24 @@ export const ButtonRedirect = styled.div`
     display: flex;
     justify-content: center;
     a {
-        padding: 10px 20px;
-        color: white;
-        background: #ef5c3d;
-        border-radius: 20px;
-        font-weight: 700;
-        font-size: larger;
+        color: #f9b208;
+        margin: 5px auto 10px;
+        cursor: pointer;
+        background: #fc5404;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 36%;
+        padding: 10px 15px;
+        color: #fff;
+        border-radius: 6px;
+        transition: all 0.5s ease;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+        font-weight: bold;
+        font-size: 12px;
+        &:hover {
+            transform: scale(1.1);
+        }
     }
 `;

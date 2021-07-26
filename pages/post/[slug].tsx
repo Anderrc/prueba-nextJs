@@ -2,6 +2,7 @@ import Layout from "../../components/organism/layout";
 import { getAllSlugs, getResource } from "../api/api";
 import ContentResource from "../../components/organism/content-resource";
 import { useRouter } from "next/router";
+import SEO from "../../components/organism/SEO";
 
 interface IProps {
     resource: {
@@ -21,6 +22,13 @@ interface IProps {
             title: string;
             url: string;
         };
+        metaData: {
+            titulo: string;
+            descripcion: string;
+            imagen: {
+                url: string;
+            };
+        };
     };
 }
 
@@ -33,6 +41,11 @@ const ResourcePage = (props: IProps) => {
 
     return (
         <Layout>
+            <SEO
+                title={resource.metaData.titulo}
+                description={resource.metaData.descripcion}
+                img={resource.metaData.imagen.url}
+            ></SEO>
             <ContentResource
                 title={resource.titulo}
                 img={resource.img.url}

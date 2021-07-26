@@ -67,7 +67,6 @@ export const getResource = async (slug: string) => {
     const entry = await fetchGraphQL(
         `query {
             paginasCollection(where:{slug: "${slug}"}, limit:1){
-               
                 items{
                     titulo
                     tipo
@@ -85,6 +84,13 @@ export const getResource = async (slug: string) => {
                     }
                     sys{
                         id
+                    }
+                    metaData{
+                        titulo
+                        descripcion
+                        imagen{
+                            url
+                        }
                     }
                 }   
             }           
