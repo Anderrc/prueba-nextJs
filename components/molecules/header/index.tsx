@@ -10,7 +10,7 @@ import { useContext, useEffect } from "react";
 import { motion } from "framer-motion";
 import { AppContext } from "../../../hooks/context";
 
-const Header = () => {
+export const Header = () => {
     const { theme, setTheme } = useContext(AppContext);
 
     const handlerButtonTheme = () => {
@@ -137,5 +137,3 @@ const Header = () => {
         </HeaderStyled>
     );
 };
-
-export default Header;

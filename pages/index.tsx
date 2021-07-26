@@ -1,17 +1,15 @@
 import { useState } from "react";
 import { AnimateSharedLayout, AnimatePresence, motion } from "framer-motion";
-import Resource from "../components/molecules/Resource";
-import Layout from "../components/organism/layout";
-import ResourceDetail from "../components/molecules/ResourceDetail";
+import { ResourceDetail, Resource, Layout } from "@components";
 import { getAllResources } from "./api/api";
 import { Container } from "./styledComponents";
-import SEO from '../components/organism/SEO'
+import SEO from "../components/organism/SEO";
 
 interface IProps {
     resources: [
         {
             titulo: string;
-            tipo: string;
+            tipo: [];
             url: string;
             descripcion: string;
             slug: string;
@@ -33,10 +31,18 @@ const Home = (props: IProps) => {
     const [isOpenAnimation, setIsOpenAnimation] = useState(false);
     const [selected, setSelected] = useState({
         titulo: "",
+        tipo: [],
+        url: "",
+        descripcion: "",
         slug: "",
-        img: {
-            url: "",
+        sys: {
+            id: ""
         },
+        img: {
+            title: "",
+            url: ""
+        },
+        recomendado: true
     });
 
     const resourceSelected = (itemSelected: any) => {
@@ -46,16 +52,13 @@ const Home = (props: IProps) => {
     };
 
     let title = "Recursos FrontEnds";
-    let description = "Son recomendaciones de personales para quien le pueda interezar";
+    let description =
+        "Son recomendaciones de personales para quien le pueda interezar";
     let img = "/public/faztweb-blog-1.jpg";
 
     return (
         <Layout>
-            <SEO
-                title={title}
-                description={description}
-                img={img}
-            ></SEO>
+            <SEO title={title} description={description} img={img}></SEO>
             <Container>
                 <AnimateSharedLayout type="crossfade">
                     <AnimatePresence>
