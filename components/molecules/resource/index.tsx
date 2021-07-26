@@ -24,7 +24,7 @@ const createSlug = (str: string) => {
     return str.toLowerCase();
 };
 
-const Resource = (props: IProps) => {
+export const Resource = (props: IProps) => {
     const {
         data: {
             img,
@@ -62,5 +62,3 @@ const Resource = (props: IProps) => {
         </Card>
     );
 };
-
-export default Resource;

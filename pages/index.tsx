@@ -1,8 +1,6 @@
 import { useState } from 'react'
 import { AnimateSharedLayout, AnimatePresence, motion } from "framer-motion";
-import Resource from "../components/molecules/Resource";
-import Layout from "../components/organism/layout";
-import ResourceDetail from "../components/molecules/ResourceDetail";
+import { ResourceDetail, Resource, Layout } from "@components";
 import { getAllResources } from "./api/api";
 import { Container } from "./styledComponents"
 
@@ -33,9 +31,13 @@ const Home = (props: IProps) => {
     const [selected, setSelected] = useState({
         titulo: '',
         slug: '',
+        descripcion: '',
+        recomendado: '',
         img: {
             url: '',
-        }
+        },
+        url: '',
+        tipo: '',
     }); 
 
     const resourceSelected = (itemSelected: any) => {

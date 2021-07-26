@@ -1,6 +1,5 @@
-import Layout from "../../components/organism/layout";
 import { getAllSlugs, getResource } from "../api/api";
-import ContentResource from "../../components/organism/content-resource";
+import { ContentResource, Layout } from "@components";
 import { useRouter } from "next/router";
 
 interface IProps {

@@ -20,7 +20,7 @@ interface IProps {
     slug: string;
 }
 
-const ContentResource = (props: IProps) => {
+export const ContentResource = (props: IProps) => {
     return (
         <ContentPageResource>
             <TitleContent>
@@ -45,5 +45,3 @@ const ContentResource = (props: IProps) => {
         </ContentPageResource>
     );
 };
-
-export default ContentResource;

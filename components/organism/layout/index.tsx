@@ -1,6 +1,5 @@
 import { ContentMain, Main, ProgressIcon } from "./styled";
-import Footer from "../../molecules/footer";
-import Header from "../../molecules/header";
+import { Header } from "@components";
 import { ThemeProvider } from "styled-components";
 import { useContext, useEffect, useState } from "react";
 import { AppContext } from "../../../hooks/context";
@@ -15,7 +14,7 @@ interface IProps {
     children: React.ReactNode;
 }
 
-const Layout = (props: IProps) => {
+export const Layout = (props: IProps) => {
     const { children } = props;
 
     const { theme, setTheme } = useContext(AppContext);
@@ -72,5 +71,3 @@ const Layout = (props: IProps) => {
         </ThemeProvider>
     );
 };
-
-export default Layout;
