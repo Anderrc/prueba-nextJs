@@ -8,7 +8,8 @@
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "getAllResources": function() { return /* binding */ getAllResources; },
-/* harmony export */   "getResource": function() { return /* binding */ getResource; }
+/* harmony export */   "getResource": function() { return /* binding */ getResource; },
+/* harmony export */   "getAllSlugs": function() { return /* binding */ getAllSlugs; }
 /* harmony export */ });
 async function fetchGraphQL(query, preview = false) {
   return fetch(`https://graphql.contentful.com/content/v1/spaces/${process.env.CONTENTFUL_SPACE_ID}`, {
@@ -35,6 +36,15 @@ function extractPage(fetchResponse) {
   return fetchResponse === null || fetchResponse === void 0 ? void 0 : (_fetchResponse$data2 = fetchResponse.data) === null || _fetchResponse$data2 === void 0 ? void 0 : (_fetchResponse$data2$ = _fetchResponse$data2.paginasCollection) === null || _fetchResponse$data2$ === void 0 ? void 0 : (_fetchResponse$data2$2 = _fetchResponse$data2$.items) === null || _fetchResponse$data2$2 === void 0 ? void 0 : _fetchResponse$data2$2[0];
 }
 
+const extractSlugs = fetchResponse => {
+  var _fetchResponse$data3, _fetchResponse$data3$;
+
+  let data = fetchResponse === null || fetchResponse === void 0 ? void 0 : (_fetchResponse$data3 = fetchResponse.data) === null || _fetchResponse$data3 === void 0 ? void 0 : (_fetchResponse$data3$ = _fetchResponse$data3.paginasCollection) === null || _fetchResponse$data3$ === void 0 ? void 0 : _fetchResponse$data3$.items;
+  let paths = [];
+  data.map(item => paths.push(item.slug));
+  return paths;
+};
+
 const getAllResources = async () => {
   const entry = await fetchGraphQL(`query {
             paginasCollection{
@@ -45,6 +55,7 @@ const getAllResources = async () => {
                   url
                   slug
                   descripcion
+                  recomendado
                   img{
                     title
                     url
@@ -60,13 +71,17 @@ const getAllResources = async () => {
 const getResource = async slug => {
   const entry = await fetchGraphQL(`query {
             paginasCollection(where:{slug: "${slug}"}, limit:1){
-               
                 items{
                     titulo
                     tipo
                     url
                     descripcion
                     slug
+                    background{
+                        title
+                        url
+                    }
+                    recomendado
                     img{
                         title
                         url
@@ -74,15 +89,32 @@ const getResource = async slug => {
                     sys{
                         id
                     }
+                    metaData{
+                        titulo
+                        descripcion
+                        imagen{
+                            url
+                        }
+                    }
                 }   
             }           
         }`, true);
   return extractPage(entry);
 };
+const getAllSlugs = async () => {
+  const entry = await fetchGraphQL(`query {
+            paginasCollection{
+                items{
+                    slug
+                }
+            }
+        }`, true);
+  return extractSlugs(entry);
+};
 
 /***/ }),
 
-/***/ 514:
+/***/ 5274:
 /***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 __webpack_require__.r(__webpack_exports__);
@@ -119,7 +151,7 @@ __webpack_require__.r(__webpack_exports__);
           page: "/api/api",
           basePath: "",
           pageIsDynamic: false,
-          encodedPreviewProps: {previewModeId:"00d3156893951e64ca333fb3b28c3094",previewModeSigningKey:"ba83ff872c64722cdb41934c25a0675f066ca2f8ff68201bc341a22357139f30",previewModeEncryptionKey:"593530104e70fad56fd00c6992e2a8ce652b089228c6a5df67273abed59cbc05"}
+          encodedPreviewProps: {previewModeId:"0bf531ebae66b89e8612ea4dbdf1c538",previewModeSigningKey:"1d448fd2ea1433bf4c8388acf69f467518de3d3e9f76928d8dd807ceb4d4677b",previewModeEncryptionKey:"df675f52ee89395880fce9c9658df38738c5070d8f1f89122617a02f947bb764"}
         })
         /* harmony default export */ __webpack_exports__["default"] = (apiHandler);
       
@@ -256,7 +288,7 @@ module.exports = require("zlib");;
 /******/ 	__webpack_require__.x = function() {
 /******/ 		// Load entry module and return exports
 /******/ 		// This entry module depends on other loaded chunks and execution need to be delayed
-/******/ 		var __webpack_exports__ = __webpack_require__.O(undefined, [926,195,428], function() { return __webpack_require__(514); })
+/******/ 		var __webpack_exports__ = __webpack_require__.O(undefined, [322,775,195,428], function() { return __webpack_require__(5274); })
 /******/ 		__webpack_exports__ = __webpack_require__.O(__webpack_exports__);
 /******/ 		return __webpack_exports__;
 /******/ 	};
@@ -408,7 +440,8 @@ module.exports = require("zlib");;
 /******/ 	!function() {
 /******/ 		var next = __webpack_require__.x;
 /******/ 		__webpack_require__.x = function() {
-/******/ 			__webpack_require__.e(926);
+/******/ 			__webpack_require__.e(322);
+/******/ 			__webpack_require__.e(775);
 /******/ 			__webpack_require__.e(195);
 /******/ 			__webpack_require__.e(428);
 /******/ 			return next();

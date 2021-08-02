@@ -1,3 +1,4 @@
+import { motion } from "framer-motion";
 import styled from "styled-components";
 
 export const HeaderStyled = styled.header`
@@ -44,7 +45,7 @@ export const ButtonTheme = styled.button<IPropButtonTheme>`
     overflow: hidden;
 `;
 
-export const IconTheme = styled.div`
+export const IconTheme = styled(motion.div)`
     width: 100%;
     height: 100%;
 `;

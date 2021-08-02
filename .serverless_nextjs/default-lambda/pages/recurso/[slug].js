@@ -2,18 +2,124 @@
 /******/ 	"use strict";
 /******/ 	var __webpack_modules__ = ({
 
-/***/ 8151:
+/***/ 2099:
 /***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
+// ESM COMPAT FLAG
 __webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "getServerSideProps": function() { return /* binding */ getServerSideProps; }
-/* harmony export */ });
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(5893);
-/* harmony import */ var _components_organism_layout__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(1866);
-/* harmony import */ var _api_api__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(1532);
-/* harmony import */ var _components_organism_content_resource__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(2184);
 
+// EXPORTS
+__webpack_require__.d(__webpack_exports__, {
+  "default": function() { return /* binding */ _slug_; },
+  "getServerSideProps": function() { return /* binding */ getServerSideProps; }
+});
+
+// EXTERNAL MODULE: ./node_modules/react/jsx-runtime.js
+var jsx_runtime = __webpack_require__(5893);
+// EXTERNAL MODULE: ./components/index.tsx + 7 modules
+var components = __webpack_require__(9816);
+;// CONCATENATED MODULE: ./pages/api/api.tsx
+async function fetchGraphQL(query, preview = false) {
+  return fetch(`https://graphql.contentful.com/content/v1/spaces/${process.env.CONTENTFUL_SPACE_ID}`, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+      Authorization: `Bearer ${preview ? process.env.CONTENTFUL_PREVIEW_ACCESS_TOKEN : process.env.CONTENTFUL_ACCESS_TOKEN}`
+    },
+    body: JSON.stringify({
+      query
+    })
+  }).then(response => response.json());
+}
+
+function extractPages(fetchResponse) {
+  var _fetchResponse$data, _fetchResponse$data$p;
+
+  return fetchResponse === null || fetchResponse === void 0 ? void 0 : (_fetchResponse$data = fetchResponse.data) === null || _fetchResponse$data === void 0 ? void 0 : (_fetchResponse$data$p = _fetchResponse$data.paginasCollection) === null || _fetchResponse$data$p === void 0 ? void 0 : _fetchResponse$data$p.items;
+}
+
+function extractPage(fetchResponse) {
+  var _fetchResponse$data2, _fetchResponse$data2$, _fetchResponse$data2$2;
+
+  return fetchResponse === null || fetchResponse === void 0 ? void 0 : (_fetchResponse$data2 = fetchResponse.data) === null || _fetchResponse$data2 === void 0 ? void 0 : (_fetchResponse$data2$ = _fetchResponse$data2.paginasCollection) === null || _fetchResponse$data2$ === void 0 ? void 0 : (_fetchResponse$data2$2 = _fetchResponse$data2$.items) === null || _fetchResponse$data2$2 === void 0 ? void 0 : _fetchResponse$data2$2[0];
+}
+
+const extractSlugs = fetchResponse => {
+  var _fetchResponse$data3, _fetchResponse$data3$;
+
+  let data = fetchResponse === null || fetchResponse === void 0 ? void 0 : (_fetchResponse$data3 = fetchResponse.data) === null || _fetchResponse$data3 === void 0 ? void 0 : (_fetchResponse$data3$ = _fetchResponse$data3.paginasCollection) === null || _fetchResponse$data3$ === void 0 ? void 0 : _fetchResponse$data3$.items;
+  let paths = [];
+  data.map(item => paths.push(item.slug));
+  return paths;
+};
+
+const getAllResources = async () => {
+  const entry = await fetchGraphQL(`query {
+            paginasCollection{
+                total
+                items{
+                  titulo
+                  tipo
+                  url
+                  slug
+                  descripcion
+                  recomendado
+                  img{
+                    title
+                    url
+                  }
+                  sys{
+                    id
+                  }
+                }
+              }
+        }`, true);
+  return extractPages(entry);
+};
+const getResource = async slug => {
+  const entry = await fetchGraphQL(`query {
+            paginasCollection(where:{slug: "${slug}"}, limit:1){
+                items{
+                    titulo
+                    tipo
+                    url
+                    descripcion
+                    slug
+                    background{
+                        title
+                        url
+                    }
+                    recomendado
+                    img{
+                        title
+                        url
+                    }
+                    sys{
+                        id
+                    }
+                    metaData{
+                        titulo
+                        descripcion
+                        imagen{
+                            url
+                        }
+                    }
+                }   
+            }           
+        }`, true);
+  return extractPage(entry);
+};
+const getAllSlugs = async () => {
+  const entry = await fetchGraphQL(`query {
+            paginasCollection{
+                items{
+                    slug
+                }
+            }
+        }`, true);
+  return extractSlugs(entry);
+};
+;// CONCATENATED MODULE: ./pages/recurso/[slug].tsx
 
 
 
@@ -22,32 +128,33 @@ const ResourcePage = props => {
   const {
     resource
   } = props;
-  return /*#__PURE__*/react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx(_components_organism_layout__WEBPACK_IMPORTED_MODULE_1__/* .default */ .Z, {
-    children: /*#__PURE__*/react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx(_components_organism_content_resource__WEBPACK_IMPORTED_MODULE_2__/* .default */ .Z, {
+  return /*#__PURE__*/jsx_runtime.jsx(components/* Layout */.Ar, {
+    children: /*#__PURE__*/jsx_runtime.jsx(components/* ContentResource */.rs, {
       title: resource.titulo,
       img: resource.img.url,
       description: resource.descripcion,
       url: resource.url,
-      type: resource.tipo,
+      tipo: resource.tipo,
       id: resource.sys.id,
-      slug: resource.slug
+      slug: resource.slug,
+      background: resource.background.url
     })
   });
 };
 
 async function getServerSideProps(context) {
-  const resource = await (0,_api_api__WEBPACK_IMPORTED_MODULE_3__.getResource)(context.params.slug);
+  const resource = await getResource(context.params.slug);
   return {
     props: {
       resource
     }
   };
 }
-/* harmony default export */ __webpack_exports__["default"] = (ResourcePage);
+/* harmony default export */ var _slug_ = (ResourcePage);
 
 /***/ }),
 
-/***/ 3351:
+/***/ 9270:
 /***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 __webpack_require__.r(__webpack_exports__);
@@ -89,7 +196,7 @@ __webpack_require__.r(__webpack_exports__);
       const appMod = __webpack_require__(1476)
       let App = appMod.default || appMod.then && appMod.then(mod => mod.default);
 
-      const compMod = __webpack_require__(8151)
+      const compMod = __webpack_require__(2099)
 
       const Component = compMod.default || compMod.then && compMod.then(mod => mod.default)
       /* harmony default export */ __webpack_exports__["default"] = (Component);
@@ -140,11 +247,11 @@ __webpack_require__.r(__webpack_exports__);
         rewrites: combinedRewrites,
         i18n: undefined,
         page: "/recurso/[slug]",
-        buildId: "kYiYO1ccFqMaA4bk7SPnX",
-        escapedBuildId: "kYiYO1ccFqMaA4bk7SPnX",
+        buildId: "wWs1Vau-Pd91VZPDaO7R2",
+        escapedBuildId: "wWs1Vau\-Pd91VZPDaO7R2",
         basePath: "",
         pageIsDynamic: true,
-        encodedPreviewProps: {previewModeId:"00d3156893951e64ca333fb3b28c3094",previewModeSigningKey:"ba83ff872c64722cdb41934c25a0675f066ca2f8ff68201bc341a22357139f30",previewModeEncryptionKey:"593530104e70fad56fd00c6992e2a8ce652b089228c6a5df67273abed59cbc05"}
+        encodedPreviewProps: {previewModeId:"0bf531ebae66b89e8612ea4dbdf1c538",previewModeSigningKey:"1d448fd2ea1433bf4c8388acf69f467518de3d3e9f76928d8dd807ceb4d4677b",previewModeEncryptionKey:"df675f52ee89395880fce9c9658df38738c5070d8f1f89122617a02f947bb764"}
       })
       
     
@@ -305,7 +412,7 @@ module.exports = require("zlib");;
 /******/ 	__webpack_require__.x = function() {
 /******/ 		// Load entry module and return exports
 /******/ 		// This entry module depends on other loaded chunks and execution need to be delayed
-/******/ 		var __webpack_exports__ = __webpack_require__.O(undefined, [926,729,336,762,651,428,796,985,0], function() { return __webpack_require__(3351); })
+/******/ 		var __webpack_exports__ = __webpack_require__.O(undefined, [322,393,775,325,999,651,428,796,20,816], function() { return __webpack_require__(9270); })
 /******/ 		__webpack_exports__ = __webpack_require__.O(__webpack_exports__);
 /******/ 		return __webpack_exports__;
 /******/ 	};
@@ -466,15 +573,16 @@ module.exports = require("zlib");;
 /******/ 	!function() {
 /******/ 		var next = __webpack_require__.x;
 /******/ 		__webpack_require__.x = function() {
-/******/ 			__webpack_require__.e(926);
-/******/ 			__webpack_require__.e(729);
-/******/ 			__webpack_require__.e(336);
-/******/ 			__webpack_require__.e(762);
+/******/ 			__webpack_require__.e(322);
+/******/ 			__webpack_require__.e(393);
+/******/ 			__webpack_require__.e(775);
+/******/ 			__webpack_require__.e(325);
+/******/ 			__webpack_require__.e(999);
 /******/ 			__webpack_require__.e(651);
 /******/ 			__webpack_require__.e(428);
 /******/ 			__webpack_require__.e(796);
-/******/ 			__webpack_require__.e(985);
-/******/ 			__webpack_require__.e(0);
+/******/ 			__webpack_require__.e(20);
+/******/ 			__webpack_require__.e(816);
 /******/ 			return next();
 /******/ 		};
 /******/ 	}();

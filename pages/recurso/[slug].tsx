@@ -1,38 +1,44 @@
-import Layout from "../../components/organism/layout";
+import {Layout, ContentResource} from "@components";
 import { getResource } from "../api/api";
-import ContentResource from "../../components/organism/content-resource";
 
 interface IProps {
-    resource: {
-        titulo: string;
-        tipo: string;
-        url: string;
-        descripcion: string;
-        slug: string;
-        sys: {
-            id: string;
-        };
-        img: {
-            title: string;
-            url: string;
-        };
-    };
+    // resource: {
+    //     titulo: string;
+    //     tipo: string[];
+    //     url: string;
+    //     descripcion: string;
+    //     slug: string;
+    //     sys: {
+    //         id: string;
+    //     };
+    //     img: {
+    //         title: string;
+    //         url: string;
+    //     };
+    //     background: {
+    //         title: string;
+    //         url: string;
+    //     }
+    // };
+    slug: string
 }
 
 const ResourcePage = (props: IProps) => {
-    const { resource } = props;
+    // const { resource } = props;
 
     return (
         <Layout>
-            <ContentResource
+            {/* <ContentResource
                 title={resource.titulo}
                 img={resource.img.url}
                 description={resource.descripcion}
                 url={resource.url}
-                type={resource.tipo}
+                tipo={resource.tipo}
                 id={resource.sys.id}
                 slug={resource.slug}
-            ></ContentResource>
+                background={resource.background.url}
+            ></ContentResource> */}
+            {props.slug}
         </Layout>
     );
 };
@@ -41,7 +47,8 @@ export async function getServerSideProps(context: any) {
     const resource = await getResource(context.params.slug);
     return {
         props: {
-            resource,
+            // resource,
+            slug:context.params.slug
         },
     };
 }

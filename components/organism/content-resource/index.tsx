@@ -12,7 +12,7 @@ import Image from 'next/image'
 interface IProps {
     title: string;
     description: string;
-    type: [];
+    tipo: string[];
     url: string;
     img: string;
     background: string;
@@ -26,7 +26,7 @@ export const ContentResource = (props: IProps) => {
             <TitleContent>
                 <Title>{props.title}</Title>
                 <ContentTags>
-                    {props.type.map((item, key) => (
+                    {props.tipo.map((item, key) => (
                         <Tag key={key}>{item}</Tag>
                     ))}
                 </ContentTags>

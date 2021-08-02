@@ -2,7 +2,37 @@
 /******/ 	"use strict";
 /******/ 	var __webpack_modules__ = ({
 
-/***/ 941:
+/***/ 1043:
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+/* unused harmony export AppContext */
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(5893);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(7294);
+
+
+
+const ThemeContext = props => {
+  const {
+    0: theme,
+    1: setTheme
+  } = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)(null);
+  return /*#__PURE__*/react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("div", {
+    children: /*#__PURE__*/react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx(AppContext.Provider, {
+      value: {
+        theme,
+        setTheme
+      },
+      children: props.children
+    })
+  });
+};
+
+/* harmony default export */ __webpack_exports__["Z"] = (ThemeContext);
+const AppContext = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1__.createContext();
+
+/***/ }),
+
+/***/ 1241:
 /***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 __webpack_require__.r(__webpack_exports__);
@@ -95,11 +125,11 @@ __webpack_require__.r(__webpack_exports__);
         rewrites: combinedRewrites,
         i18n: undefined,
         page: "/_error",
-        buildId: "kYiYO1ccFqMaA4bk7SPnX",
-        escapedBuildId: "kYiYO1ccFqMaA4bk7SPnX",
+        buildId: "wWs1Vau-Pd91VZPDaO7R2",
+        escapedBuildId: "wWs1Vau\-Pd91VZPDaO7R2",
         basePath: "",
         pageIsDynamic: false,
-        encodedPreviewProps: {previewModeId:"00d3156893951e64ca333fb3b28c3094",previewModeSigningKey:"ba83ff872c64722cdb41934c25a0675f066ca2f8ff68201bc341a22357139f30",previewModeEncryptionKey:"593530104e70fad56fd00c6992e2a8ce652b089228c6a5df67273abed59cbc05"}
+        encodedPreviewProps: {previewModeId:"0bf531ebae66b89e8612ea4dbdf1c538",previewModeSigningKey:"1d448fd2ea1433bf4c8388acf69f467518de3d3e9f76928d8dd807ceb4d4677b",previewModeEncryptionKey:"df675f52ee89395880fce9c9658df38738c5070d8f1f89122617a02f947bb764"}
       })
       
     
@@ -260,7 +290,7 @@ module.exports = require("zlib");;
 /******/ 	__webpack_require__.x = function() {
 /******/ 		// Load entry module and return exports
 /******/ 		// This entry module depends on other loaded chunks and execution need to be delayed
-/******/ 		var __webpack_exports__ = __webpack_require__.O(undefined, [926,729,27,428,796], function() { return __webpack_require__(941); })
+/******/ 		var __webpack_exports__ = __webpack_require__.O(undefined, [322,393,775,846,428,796], function() { return __webpack_require__(1241); })
 /******/ 		__webpack_exports__ = __webpack_require__.O(__webpack_exports__);
 /******/ 		return __webpack_exports__;
 /******/ 	};
@@ -421,9 +451,10 @@ module.exports = require("zlib");;
 /******/ 	!function() {
 /******/ 		var next = __webpack_require__.x;
 /******/ 		__webpack_require__.x = function() {
-/******/ 			__webpack_require__.e(926);
-/******/ 			__webpack_require__.e(729);
-/******/ 			__webpack_require__.e(27);
+/******/ 			__webpack_require__.e(322);
+/******/ 			__webpack_require__.e(393);
+/******/ 			__webpack_require__.e(775);
+/******/ 			__webpack_require__.e(846);
 /******/ 			__webpack_require__.e(428);
 /******/ 			__webpack_require__.e(796);
 /******/ 			return next();

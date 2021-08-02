@@ -1,5 +1,4 @@
 import styled from "styled-components";
-import { motion } from "framer-motion";
 
 export const Container = styled.div`
     width: 100%;
@@ -9,3 +8,5 @@ export const Container = styled.div`
     gap: 30px;
     justify-content: center;  
 `;
+
+export default Container;

@@ -33,24 +33,23 @@ export const Header = () => {
                 </Logo>
                 <ButtonTheme onClick={handlerButtonTheme} background={theme}>
                     <IconTheme
-                        as={motion.div}
                         initial="y:-25"
                         animate={
                             theme === "darkTheme"
                                 ? {
-                                      y: 19,
-                                      transition: {
-                                          duration: 0.5,
-                                          ease: "easeInOut",
-                                      },
-                                  }
+                                        y: 19,
+                                        transition: {
+                                            duration: 0.5,
+                                            ease: "easeInOut",
+                                        },
+                                    }
                                 : {
-                                      y: -25,
-                                      transition: {
-                                          duration: 0.5,
-                                          ease: "easeInOut",
-                                      },
-                                  }
+                                        y: -25,
+                                        transition: {
+                                            duration: 0.5,
+                                            ease: "easeInOut",
+                                        },
+                                    }
                         }
                     >
                         <svg

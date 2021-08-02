@@ -6,7 +6,7 @@ exports.modules = {
 /***/ (function(module) {
 
 "use strict";
-module.exports = JSON.parse('{"polyfillFiles":["static/chunks/polyfills-a54b4f32bdc1ef890ddd.js"],"devFiles":[],"ampDevFiles":[],"lowPriorityFiles":["static/kYiYO1ccFqMaA4bk7SPnX/_buildManifest.js","static/kYiYO1ccFqMaA4bk7SPnX/_ssgManifest.js"],"pages":{"/":["static/chunks/webpack-61095c13c5984b221292.js","static/chunks/framework-92300432a1172ef1338b.js","static/chunks/main-1f18f76c3a76cf3a94ff.js","static/chunks/163-57d50e18fbe217fe1b39.js","static/chunks/pages/index-0a6f09cf43765e016efc.js"],"/_app":["static/chunks/webpack-61095c13c5984b221292.js","static/chunks/framework-92300432a1172ef1338b.js","static/chunks/main-1f18f76c3a76cf3a94ff.js","static/css/120f2e2270820d49a21f.css","static/chunks/pages/_app-8f449eaf80d95afd5db6.js"],"/_error":["static/chunks/webpack-61095c13c5984b221292.js","static/chunks/framework-92300432a1172ef1338b.js","static/chunks/main-1f18f76c3a76cf3a94ff.js","static/chunks/pages/_error-a0e21b9b223f827fe1f2.js"],"/post/[slug]":["static/chunks/webpack-61095c13c5984b221292.js","static/chunks/framework-92300432a1172ef1338b.js","static/chunks/main-1f18f76c3a76cf3a94ff.js","static/chunks/163-57d50e18fbe217fe1b39.js","static/chunks/pages/post/[slug]-c9c3eed19904b54297f5.js"],"/recurso/[slug]":["static/chunks/webpack-61095c13c5984b221292.js","static/chunks/framework-92300432a1172ef1338b.js","static/chunks/main-1f18f76c3a76cf3a94ff.js","static/chunks/163-57d50e18fbe217fe1b39.js","static/chunks/pages/recurso/[slug]-a3564bc0779613de2f68.js"],"/styles":["static/chunks/webpack-61095c13c5984b221292.js","static/chunks/framework-92300432a1172ef1338b.js","static/chunks/main-1f18f76c3a76cf3a94ff.js","static/chunks/163-57d50e18fbe217fe1b39.js","static/chunks/pages/styles-de301eae591e12170ad1.js"]},"ampFirstPages":[]}');
+module.exports = JSON.parse('{"polyfillFiles":["static/chunks/polyfills-a54b4f32bdc1ef890ddd.js"],"devFiles":[],"ampDevFiles":[],"lowPriorityFiles":["static/wWs1Vau-Pd91VZPDaO7R2/_buildManifest.js","static/wWs1Vau-Pd91VZPDaO7R2/_ssgManifest.js"],"pages":{"/":["static/chunks/webpack-61095c13c5984b221292.js","static/chunks/framework-64eb7138163e04c228e4.js","static/chunks/main-1f18f76c3a76cf3a94ff.js","static/chunks/117-6cc66afc5f75da6c7537.js","static/chunks/789-b3588586c169d0b27996.js","static/chunks/427-d4a4f77a633f08416a7d.js","static/chunks/24-c25d580b25f462582116.js","static/chunks/pages/index-70e2880bd7647a228ee8.js"],"/_app":["static/chunks/webpack-61095c13c5984b221292.js","static/chunks/framework-64eb7138163e04c228e4.js","static/chunks/main-1f18f76c3a76cf3a94ff.js","static/css/120f2e2270820d49a21f.css","static/chunks/pages/_app-00ece179dffd7e559dba.js"],"/_error":["static/chunks/webpack-61095c13c5984b221292.js","static/chunks/framework-64eb7138163e04c228e4.js","static/chunks/main-1f18f76c3a76cf3a94ff.js","static/chunks/pages/_error-a0e21b9b223f827fe1f2.js"],"/post/[slug]":["static/chunks/webpack-61095c13c5984b221292.js","static/chunks/framework-64eb7138163e04c228e4.js","static/chunks/main-1f18f76c3a76cf3a94ff.js","static/chunks/117-6cc66afc5f75da6c7537.js","static/chunks/789-b3588586c169d0b27996.js","static/chunks/24-c25d580b25f462582116.js","static/chunks/pages/post/[slug]-571ee6eaa15185f2b9d4.js"],"/recurso/[slug]":["static/chunks/webpack-61095c13c5984b221292.js","static/chunks/framework-64eb7138163e04c228e4.js","static/chunks/main-1f18f76c3a76cf3a94ff.js","static/chunks/117-6cc66afc5f75da6c7537.js","static/chunks/789-b3588586c169d0b27996.js","static/chunks/24-c25d580b25f462582116.js","static/chunks/pages/recurso/[slug]-77f54679e1c90773581f.js"],"/styledComponents":["static/chunks/webpack-61095c13c5984b221292.js","static/chunks/framework-64eb7138163e04c228e4.js","static/chunks/main-1f18f76c3a76cf3a94ff.js","static/chunks/117-6cc66afc5f75da6c7537.js","static/chunks/pages/styledComponents-3006cffd9acc53177649.js"]},"ampFirstPages":[]}');
 
 /***/ }),
 
@@ -24,6 +24,7 @@ module.exports = {};
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(5893);
+/* harmony import */ var _hooks_context__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(1043);
 
 
 function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
@@ -34,11 +35,14 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
 
 
+
 function MyApp({
   Component,
   pageProps
 }) {
-  return /*#__PURE__*/react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx(Component, _objectSpread({}, pageProps));
+  return /*#__PURE__*/react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx(_hooks_context__WEBPACK_IMPORTED_MODULE_1__/* .default */ .Z, {
+    children: /*#__PURE__*/react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx(Component, _objectSpread({}, pageProps))
+  });
 }
 
 /* harmony default export */ __webpack_exports__["default"] = (MyApp);

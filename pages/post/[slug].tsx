@@ -50,7 +50,7 @@ const ResourcePage = (props: IProps) => {
                 img={resource.img.url}
                 description={resource.descripcion}
                 url={resource.url}
-                type={resource.tipo}
+                tipo={resource.tipo}
                 id={resource.sys.id}
                 slug={resource.slug}
                 background={resource.background.url}

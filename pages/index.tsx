@@ -1,8 +1,8 @@
 import { useState } from "react";
-import { AnimateSharedLayout, AnimatePresence, motion } from "framer-motion";
+import { AnimateSharedLayout, AnimatePresence } from "framer-motion";
 import { ResourceDetail, Resource, Layout } from "@components";
 import { getAllResources } from "./api/api";
-import { Container } from "./styledComponents";
+import  Container  from "./styledComponents";
 import SEO from "../components/organism/SEO";
 
 interface IProps {
@@ -52,8 +52,7 @@ const Home = (props: IProps) => {
     };
 
     let title = "Recursos FrontEnds";
-    let description =
-        "Son recomendaciones de personales para quien le pueda interezar";
+    let description ="Son recomendaciones de personales para quien le pueda interezar";
     let img = "/public/faztweb-blog-1.jpg";
 
     return (
